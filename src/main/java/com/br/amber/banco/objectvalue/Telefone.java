@@ -20,6 +20,7 @@ public  class Telefone {
     public void setCodigoArea(String codigoArea) {
         String codigoAreaFormatado = codigoArea.replaceAll("\\D","");
         System.out.println(codigoAreaFormatado);
+        System.out.println("tamanho é " + codigoAreaFormatado.length());
         if(codigoAreaFormatado == null ||
             codigoAreaFormatado.length() > 3 ||
             codigoAreaFormatado.length() < 2){
@@ -34,7 +35,7 @@ public  class Telefone {
         if(numeroFormatado == null ||
                 numeroFormatado.length() < 8 ||
                 numeroFormatado.length() > 9){
-            throw new InvalidParameterException("Código de área é inválido!");
+            throw new InvalidParameterException("Número é inválido!");
         }else{
             this.numero = numeroFormatado;
         }
@@ -48,6 +49,6 @@ public  class Telefone {
 
     @Override
     public String toString() {
-        return "(" + this.codigoPais + ")(" + this.codigoArea + ") " + this.numero ;
+        return "(" + this.codigoPais + ")(" + this.codigoArea + ")" + this.numero ;
     }
 }

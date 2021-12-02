@@ -9,8 +9,8 @@ public class Endereco {
     private String cidade;
     private String estado;
     private String complemento;
-    private Integer numero;
-    private Integer cep;
+    private String numero;
+    private String cep;
 
     public String getLogradouro() {
         return logradouro;
@@ -72,33 +72,35 @@ public class Endereco {
         }
     }
 
-    public Integer getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
-        if(numero == null){
-            throw new InvalidParameterException("Número deve ser informado!");
+    public void setNumero(String numero) {
+        String numeroFormatado = numero.replaceAll("\\D","");
+        if(numeroFormatado == null){
+            throw new InvalidParameterException("Número deve ser informado e não vazio!");
         }else{
-            this.numero = numero;
+            this.numero = numeroFormatado;
         }
     }
 
-    public Integer getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Integer cep) {
-        if(cep == null){
-            throw new InvalidParameterException("CEP deve ser informado!");
+    public void setCep(String cep) {
+        String cepFormatado = cep.replaceAll("\\D","");
+        if(cepFormatado == null){
+            throw new InvalidParameterException("CEP deve ser informado e não pode ser vazio!");
         }else{
-            this.cep = cep;
+            this.cep = cepFormatado;
         }
     }
 
     public Endereco(String logradouro, String bairro, String cidade
-                , String estado, String complemento, Integer numero
-                , Integer cep) {
+                , String estado, String complemento, String numero
+                , String cep) {
         setLogradouro(logradouro);
         setBairro(bairro);
         setCidade(cidade);
@@ -108,7 +110,7 @@ public class Endereco {
         setCep(cep);
     }
 
-    public Endereco(Integer numero, Integer cep) {
+    public Endereco(String numero, String cep) {
         setNumero(numero);
         setCep(cep);
     }
