@@ -13,9 +13,9 @@ public class Cpf {
     public void setNumero(String numero) {
         String numeroFormatado = numero.replaceAll("\\D","");
         if(numeroFormatado == null || numeroFormatado.isEmpty()){
-            throw new InvalidParameterException("Número não pode ser vazio!");
+            throw new InvalidParameterException("Número do CPF não pode ser vazio e conter somente números!");
         }else if(numeroFormatado.length() < 11){
-            throw new InvalidParameterException("Número deve ter exatamente 12 dígitos!");
+            throw new InvalidParameterException("Número DO CPF deve ter exatamente 11 dígitos!");
         }else{
             this.numero = numeroFormatado;
         }
@@ -23,5 +23,10 @@ public class Cpf {
 
     public Cpf(String numero) {
         setNumero(numero);
+    }
+
+    @Override
+    public String toString() {
+        return this.numero;
     }
 }

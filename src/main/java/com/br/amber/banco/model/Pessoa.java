@@ -7,7 +7,7 @@ import com.br.amber.banco.objectvalue.Telefone;
 import java.security.InvalidParameterException;
 import java.util.List;
 
-public class Pessoa {
+public abstract class  Pessoa {
 
     private String nome;
     private Cpf cpf;
@@ -53,5 +53,10 @@ public class Pessoa {
     public Pessoa(String nome, Cpf cpf) {
         this.nome = nome;
         this.cpf = cpf;
+    }
+
+    @Override
+    public String toString() {
+        return "[Nome: " + this.nome + ", CPF: " + this.cpf + "]";
     }
 }
