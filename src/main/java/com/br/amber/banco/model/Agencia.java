@@ -13,6 +13,10 @@ public class Agencia {
     private Endereco endereco;
     private List<Telefone> telefones;
 
+    public Agencia(String numero) {
+        this.numero = numero;
+    }
+
     public void setNumero(String numero) {
         String numeroFormatado = numero.replaceAll("\\D","");
         if(numeroFormatado == null || numeroFormatado.isEmpty()){
