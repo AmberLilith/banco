@@ -11,7 +11,7 @@ public class Cpf {
     }
 
     public void setNumero(String numero) {
-        String numeroFormatado = numero.replaceAll("[^0-9]","");
+        String numeroFormatado = numero.replaceAll("\\D","");
         if(numeroFormatado == null || numeroFormatado.isEmpty()){
             throw new InvalidParameterException("Número não pode ser vazio!");
         }else if(numeroFormatado.length() < 11){
